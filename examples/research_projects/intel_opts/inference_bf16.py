@@ -19,7 +19,7 @@ def image_grid(imgs, rows, cols):
 
 prompt = ["a lovely <dicoo> in red dress and hat, in the snowly and brightly night, with many brighly buildings"]
 batch_size = 8
-prompt = prompt * batch_size
+prompt *= batch_size
 
 device = "cpu"
 model_id = "path-to-your-trained-model"
@@ -46,4 +46,4 @@ with torch.cpu.amp.autocast(enabled=True, dtype=torch.bfloat16):
 
     # save image
     grid = image_grid(images, rows=2, cols=4)
-    grid.save(model_id + ".png")
+    grid.save(f"{model_id}.png")
